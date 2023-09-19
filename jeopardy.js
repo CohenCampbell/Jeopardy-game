@@ -16,10 +16,9 @@ catData = {};
 
 
 async function getCategory(catIdArr) {
-    catData = {};
 
      for(let id of catIdArr){ 
-            let getResult1 = await axios.get(`http://jservice.io/api/category?id=${id}`);
+            let getResult1 = await axios.get(`https://jservice.io/api/category?id=${id}`);
             catData[getResult1.data.title] = getResult1.data;
     }
 
@@ -47,9 +46,6 @@ async function fillTable() {
             th.innerText = titleArray[hCount];
           }
         }
-        
-
- 
 }
      
 async function tdObjCreator(){
@@ -91,9 +87,6 @@ async function tdObjCreator(){
         clueCounter++;
         tdClueObj[i] = catData[titleArray[5]].clues[clueCounter];
     }
-
-    
-
 }
 
 
@@ -138,5 +131,4 @@ function rBtnReload(){
         rBtnReload();
     })
 }, 20000)
-
 }
